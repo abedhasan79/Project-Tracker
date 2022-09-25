@@ -1,1 +1,33 @@
 
+.jumbotron{
+    background-color: rgb(49, 35, 51);
+    color: azure;
+}
+
+.card{
+    background-color: rgb(49, 35, 51);
+    color: azure;
+}
+li{
+    color: black;
+}
+
+thead{
+    background-color: rgb(226, 128, 210);
+}
+
+
+td{
+    background-color: rgb(226, 43, 104);
+    color: white;
+}
+
+.delete-project-btn:hover{
+    background-color: antiquewhite;
+    color: black;
+    cursor: pointer;
+}
+
+.p-2{
+    text-align: center;
+}
