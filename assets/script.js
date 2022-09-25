@@ -12,15 +12,15 @@ setInterval(function(){
 },1000);
 
 //date picker
-projectDueDate.datepicker({ minDate: -20, maxDate: "+1M +10D" });
+projectDueDate.datepicker({ minDate:1});
 
 function createProjectInfo(name, type, hourlyRate, dueDate){
     let projectRow = $('<tr>');
 
-    projectNameInput = $('<td>').addClass('p-2').text(name);
-    projectTypeInput =$('<td>').addClass('p-2').text(type);
-    projectHourlyRateInput = $('<td>').addClass('p-2').text(hourlyRate);
-    projectDueDate = $('<td>').addClass("p-2").text(dueDate);
+    let projectNameInput = $('<td>').addClass('p-2').text(name);
+    let projectTypeInput =$('<td>').addClass('p-2').text(type);
+    let projectHourlyRateInput = $('<td>').addClass('p-2').text(hourlyRate);
+    let projectDueDate = $('<td>').addClass("p-2").text(dueDate);
 
     let timeLeftToDueDate = moment(dueDate, 'MM/DD/YYYY').diff(moment(),'days');
     let daysTillDueDate = $('<td>').addClass('p-2').text(timeLeftToDueDate);
@@ -53,11 +53,12 @@ projectDisplay.on('click', '.delete-project-btn', function(e){
  
 projectForm.on('submit', function(e){
     e.preventDefault();
-    createProjectInfo(projectNameInput.val().trim(),
-    projectNameInput.val().trim(),
-    projectHourlyRateInput.val().trim(),
-    projectDueDate.val().trim());
-
+    let name = projectNameInput.val().trim();
+    let type = projectTypeInput.val().trim();
+    let hourlyRate = projectHourlyRateInput.val().trim();
+    let dueDate = projectDueDate.val().trim();
+    createProjectInfo(name, type, hourlyRate, dueDate);
+    
     projectForm[0].reset();
 
 });
